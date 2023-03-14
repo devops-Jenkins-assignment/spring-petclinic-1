@@ -13,9 +13,9 @@ pipeline {
         stage('Merge Pull Request') {
             steps {
                 script {
-                    def prNumber = CHANGE_ID
-                    def repoOwner = GIT_AUTHOR_NAME 
-                    def repoName = GIT_BRANCH
+                    def prNumber = "${env.CHANGE_ID}"
+                    def repoOwner = "${env.GIT_AUTHOR_NAME}" 
+                    def repoName = "${env.GIT_BRANCH}"
                     def targetBranch = 'develop'  
                      echo "PR Number : ${prNumber} -repo owner : ${repoOwner} - repo Name : ${repoName}"               
                     // clone the repository
