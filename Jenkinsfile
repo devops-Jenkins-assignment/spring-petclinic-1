@@ -19,7 +19,7 @@ pipeline {
                     def targetBranch = 'develop'  
                      echo "PR Number : ${prNumber} -repo owner : ${repoOwner} - repo Name : ${repoName}"               
                     // clone the repository
-                    checkout([$class: 'GitSCM', branches: [[name: '*/develop']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'your_credentials_id', url: 'your_repo_url']]])
+                    checkout([$class: 'GitSCM', branches: [[name: 'develop']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'your_credentials_id', url: 'your_repo_url']]])
                     // fetch the pull request
                     sh "git fetch origin pull/${prNumber}/head:pr-${prNumber}"
                     // checkout the pull request
