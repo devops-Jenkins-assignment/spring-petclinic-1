@@ -24,7 +24,7 @@ pipeline{
         }
         stage('post build for staging environment') {
             steps {
-                archiveArtifacts artifacts: '**/target/gameoflife.war',
+                archiveArtifacts artifacts: '**/target/spring-petclinic-3.0.0-SNAPSHOT.jar',
                                  onlyIfSuccessful: true
                 junit testResults: '**/surefire-reports/TEST-*.xml'
             }
